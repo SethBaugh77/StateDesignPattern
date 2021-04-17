@@ -1,39 +1,68 @@
-public class NetflixState extends State{
+/**
+ * Class that represents the state of a TV being in Netflix.
+ * @author Seth Baugh
+ */
+public class NetflixState implements State {
     private TV tv;
 
-    public void pressHomeButton()
-    {
+    /**
+     * Constructor to create the object.
+     * @param tv reference to TV found in driver.
+     */
+    NetflixState(TV tv) {
+        this.tv = tv;
+    }
+
+    /**
+     * Method to switch State to Home.
+     */
+    public void pressHomeButton() {
         System.out.println("Loading Home Screen");
-        State netflixState = new NetflixState();
-        tv.setState();
+        System.out.println();
+
+        tv.setState(tv.getHomeState());
     }
 
-    public void pressHuluButton()
-    {
+    /**
+     * Method to Switch State to Hulu.
+     */
+    public void pressHuluButton() {
         System.out.println("Loading Hulu");
+        System.out.println();
+        tv.setState(tv.getHuluState());
     }
 
-    public void pressTVButton()
-    {
-        System.out.println("The Office");
-        System.out.println("Bear in the big blue house");
-        System.out.println("Criminal Minds");
-        System.out.println("Stranger Things");
-        System.out.println("Barely Alive");
+    /**
+     * Method to print out TV shows related to Netflix.
+     */
+    public void pressTVButton() {
+        System.out.println("Netflix TV Shows:");
+        System.out.println("-Hannah Montana");
+        System.out.println("-Lost");
+        System.out.println("-Walking Dead");
+        System.out.println("-Series of Unfortunate Events");
+        System.out.println("-The Flash");
+        System.out.println();
     }
 
-    public void pressMovieButton()
-    {
-        System.out.println("The Revanant");
-        System.out.println("Murder on the Orient Express");
-        System.out.println("Spy Kids");
-        System.out.println("Lion King");
-        System.out.println("Harry Potter");
+    /**
+     * Method to print out movies related to Neflix.
+     */
+    public void pressMovieButton() {
+        System.out.println("Netflix Movies:");
+        System.out.println("-The Conjuring");
+        System.out.println("-Spider Man 3");
+        System.out.println("-Shawshank Redemption");
+        System.out.println("-Men In Black");
+        System.out.println("-Forest Gump");
+        System.out.println();
     }
 
-    
-    public void pressNetflixButton()
-    {
+    /**
+     * Method to tell user he/she is already in Netflix state.
+     */
+    public void pressNetflixButton() {
         System.out.println("You are already on Netflix");
+        System.out.println();
     }
 }
